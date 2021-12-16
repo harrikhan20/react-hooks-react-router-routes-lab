@@ -5,9 +5,31 @@ import Home from "./Home";
 import Actors from "./Actors";
 import Directors from "./Directors";
 import Movies from "./Movies";
+import { movies } from "../data";
 
 function App() {
-  return <div>{/*{code here}*/}</div>;
-}
+  return <div>
+    <NavBar />
+    <Switch>
+      <Route path="/movies">
+        <Movies 
+        movies={movies}
+        title={movies.title}
+        time={movies.time}
+        genres={movies.genres}
+        />
+      </Route>
+      <Route path="/directors">
+        <Directors />
+      </Route>
+      <Route path="/actors">
+        <Actors />
+      </Route>
+      <Route exact path="/">
+        <Home />
+      </Route>
+    </Switch>
+  </div>
+};
 
 export default App;
